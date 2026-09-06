@@ -2,1693 +2,65 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NudgeIQ — Gold Intelligence</title>
 
-<title>NudgeIQ — Gold Intelligence</title>
-<link rel="stylesheet" href="style.css">
+    <!-- ONLY ONE CSS FILE -->
+    <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
->
-
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-
-    --bg:#03050b;
-
-    --glass:rgba(12,17,30,.58);
-
-    --glass2:rgba(255,255,255,.045);
-
-    --border:rgba(255,255,255,.13);
-
-    --gold:#e8b94f;
-
-    --gold2:#ffd978;
-
-    --gold3:#9d6b19;
-
-    --purple:#a77cff;
-
-    --purple2:#6c45d8;
-
-    --blue:#66a6ff;
-
-    --green:#64e19d;
-
-    --white:#f7f4ed;
-
-    --muted:#8f96a6;
-
-    --danger:#ff7272;
-
-}
-
-
-html{
-    scroll-behavior:smooth;
-}
-
-
-body{
-
-    min-height:100vh;
-
-    overflow-x:hidden;
-
-    font-family:"Inter",sans-serif;
-
-    color:var(--white);
-
-    background:
-
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(111,67,220,.12),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(232,185,79,.08),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(40,90,180,.08),
-            transparent 30%
-        ),
-
-        #03050b;
-}
-
-
-/* =========================================================
-   COSMIC BACKGROUND
-========================================================= */
-
-#spaceCanvas{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    z-index:-5;
-
-    pointer-events:none;
-}
-
-
-.nebula{
-
-    position:fixed;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    filter:blur(120px);
-
-    pointer-events:none;
-
-    z-index:-4;
-
-    opacity:.18;
-
-}
-
-
-.nebula.one{
-
-    top:-280px;
-    left:25%;
-
-    background:#8b5cf6;
-}
-
-
-.nebula.two{
-
-    right:-250px;
-    top:35%;
-
-    background:#e8b94f;
-}
-
-
-.nebula.three{
-
-    bottom:-300px;
-    left:30%;
-
-    background:#2563eb;
-}
-
-
-/* =========================================================
-   GLASS
-========================================================= */
-
-.glass{
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.018)
-        );
-
-    border:1px solid var(--border);
-
-    backdrop-filter:blur(25px);
-
-    -webkit-backdrop-filter:blur(25px);
-
-    box-shadow:
-
-        0 30px 80px rgba(0,0,0,.35),
-
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar{
-
-    position:fixed;
-
-    top:15px;
-    left:15px;
-
-    bottom:15px;
-
-    width:240px;
-
-    padding:28px 16px;
-
-    border-radius:26px;
-
-    z-index:20;
-
-}
-
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:13px;
-
-    padding:5px 10px 38px;
-}
-
-
-.logo{
-
-    width:45px;
-    height:45px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:14px;
-
-    color:#111;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    background:
-        radial-gradient(
-            circle at 30% 20%,
-            #fff2b8,
-            var(--gold) 50%,
-            #855716
-        );
-
-    box-shadow:
-        0 0 25px rgba(232,185,79,.25);
-}
-
-
-.brand-name{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:22px;
-
-}
-
-
-.brand-sub{
-
-    color:var(--gold2);
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    margin-top:3px;
-}
-
-
-.nav{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:7px;
-}
-
-
-.nav-btn{
-
-    width:100%;
-
-    padding:13px 14px;
-
-    border:1px solid transparent;
-
-    border-radius:14px;
-
-    background:transparent;
-
-    color:#9298a7;
-
-    font-family:inherit;
-
-    font-size:11px;
-
-    text-align:left;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-}
-
-
-.nav-btn:hover{
-
-    color:white;
-
-    background:rgba(255,255,255,.05);
-
-    border-color:rgba(255,255,255,.08);
-}
-
-
-.nav-btn.active{
-
-    color:var(--gold2);
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(232,185,79,.13),
-            rgba(167,124,255,.04)
-        );
-
-    border-color:
-        rgba(232,185,79,.25);
-
-    box-shadow:
-        0 0 25px rgba(232,185,79,.05);
-}
-
-
-.nav-icon{
-
-    font-size:16px;
-
-    width:22px;
-
-    text-align:center;
-}
-
-
-.status{
-
-    position:absolute;
-
-    left:16px;
-    right:16px;
-    bottom:20px;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.035);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-}
-
-
-.status-line{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    font-size:10px;
-
-    font-weight:600;
-}
-
-
-.status-dot{
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:
-        0 0 14px var(--green);
-
-    animation:pulse 2s infinite;
-}
-
-
-.status-small{
-
-    color:#6f7583;
-
-    font-size:8px;
-
-    margin-top:6px;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.main{
-
-    margin-left:270px;
-
-    padding:40px 45px;
-
-    max-width:1600px;
-}
-
-
-/* =========================================================
-   TOP
-========================================================= */
-
-.top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    margin-bottom:28px;
-}
-
-
-.eyebrow{
-
-    color:var(--gold2);
-
-    font-size:9px;
-
-    font-weight:700;
-
-    letter-spacing:2.5px;
-
-    margin-bottom:10px;
-}
-
-
-.title{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:53px;
-
-    line-height:1;
-
-    letter-spacing:-2px;
-}
-
-
-.title span{
-
-    color:var(--gold2);
-
-    text-shadow:
-        0 0 30px rgba(232,185,79,.18);
-}
-
-
-.description{
-
-    color:#858c9c;
-
-    max-width:590px;
-
-    font-size:12px;
-
-    line-height:1.7;
-
-    margin-top:14px;
-}
-
-
-.top-right{
-
-    display:flex;
-
-    gap:10px;
-}
-
-
-.pill{
-
-    padding:9px 13px;
-
-    border-radius:30px;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    background:
-        rgba(255,255,255,.04);
-
-    color:#aaa;
-
-    font-size:9px;
-}
-
-
-.live{
-
-    color:#b9f4d5;
-
-}
-
-
-.live::before{
-
-    content:"";
-
-    display:inline-block;
-
-    width:6px;
-    height:6px;
-
-    margin-right:6px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:0 0 10px var(--green);
-}
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-.search-card{
-
-    padding:18px 20px;
-
-    border-radius:20px;
-
-    margin-bottom:18px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.search-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:400px;
-    height:1px;
-
-    top:50%;
-
-    right:-100px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(232,185,79,.6),
-            transparent
-        );
-
-    box-shadow:
-        0 0 20px var(--gold);
-}
-
-
-.search-label{
-
-    color:var(--gold2);
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:1.7px;
-
-    margin-bottom:9px;
-}
-
-
-.search-row{
-
-    display:flex;
-
-    gap:10px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.search{
-
-    width:300px;
-
-    padding:12px 15px;
-
-    border-radius:11px;
-
-    border:
-        1px solid rgba(255,255,255,.14);
-
-    background:
-        rgba(0,0,0,.30);
-
-    color:white;
-
-    font-family:inherit;
-
-    outline:none;
-
-    font-size:12px;
-
-    transition:.25s;
-}
-
-
-.search:focus{
-
-    border-color:
-        rgba(232,185,79,.55);
-
-    box-shadow:
-        0 0 20px rgba(232,185,79,.08);
-}
-
-
-.analyse{
-
-    padding:12px 19px;
-
-    border:none;
-
-    border-radius:11px;
-
-    color:#17120a;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffe69b,
-            #d79b32
-        );
-
-    font-family:inherit;
-
-    font-weight:700;
-
-    font-size:10px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 0 25px rgba(232,185,79,.18);
-
-    transition:.25s;
-}
-
-
-.analyse:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 0 35px rgba(232,185,79,.32);
-}
-
-
-/* =========================================================
-   CUSTOMER GRID
-========================================================= */
-
-.customer-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        .85fr 1fr 1.35fr;
-
-    gap:0;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    margin-bottom:18px;
-}
-
-
-.panel{
-
-    padding:27px;
-
-    min-height:400px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.018)
-        );
-
-    border-right:
-        1px solid rgba(255,255,255,.09);
-
-    position:relative;
-}
-
-
-.panel:last-child{
-
-    border-right:none;
-}
-
-
-.panel::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:15%;
-
-    width:70%;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.18),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   CUSTOMER PROFILE
-========================================================= */
-
-.panel-label{
-
-    color:#778092;
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:1.6px;
-}
-
-
-.customer-id{
-
-    color:var(--gold2);
-
-    font-family:"Playfair Display",serif;
-
-    font-size:31px;
-
-    margin-top:7px;
-
-    text-shadow:
-        0 0 20px rgba(232,185,79,.15);
-}
-
-
-.persona{
-
-    color:#b48cff;
-
-    font-size:10px;
-
-    margin-top:4px;
-}
-
-
-/* =========================================================
-   SCORE ORBIT
-========================================================= */
-
-.score-orbit{
-
-    width:190px;
-    height:190px;
-
-    margin:30px auto 25px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    background:
-
-        conic-gradient(
-            var(--gold2),
-            #b27722,
-            var(--purple),
-            transparent 72%,
-            var(--gold2)
-        );
-
-    animation:
-        orbitGlow 4s ease-in-out infinite;
-}
-
-
-.score-orbit::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:10px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(167,124,255,.08),
-            #050812 65%
-        );
-}
-
-
-.score-orbit::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    top:12px;
-    right:27px;
-
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:
-        0 0 10px var(--gold2),
-        0 0 25px var(--gold2);
-}
-
-
-.score-center{
-
-    position:relative;
-
-    z-index:2;
-
-    text-align:center;
-}
-
-
-.score{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:44px;
-
-    font-weight:700;
-
-    color:white;
-}
-
-
-.score-label{
-
-    color:var(--gold2);
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-}
-
-
-@keyframes orbitGlow{
-
-    0%,100%{
-        box-shadow:
-            0 0 25px rgba(232,185,79,.10);
-    }
-
-    50%{
-        box-shadow:
-            0 0 50px rgba(167,124,255,.18);
-    }
-}
-
-
-/* =========================================================
-   MINI CUSTOMER STATS
-========================================================= */
-
-.mini-stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:7px;
-}
-
-
-.mini{
-
-    padding:10px 7px;
-
-    text-align:center;
-
-    border:
-        1px solid rgba(255,255,255,.07);
-
-    border-radius:11px;
-
-    background:
-        rgba(255,255,255,.025);
-}
-
-
-.mini small{
-
-    display:block;
-
-    color:#6f7582;
-
-    font-size:7px;
-}
-
-
-.mini strong{
-
-    display:block;
-
-    color:#ddd;
-
-    font-size:10px;
-
-    margin-top:4px;
-}
-
-
-/* =========================================================
-   SIGNALS
-========================================================= */
-
-.signal-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:9px;
-
-    margin-top:22px;
-}
-
-
-.signal{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:12px 13px;
-
-    border-radius:12px;
-
-    border:
-        1px solid rgba(255,255,255,.07);
-
-    background:
-        rgba(255,255,255,.025);
-
-    transition:.25s;
-}
-
-
-.signal:hover{
-
-    border-color:
-        rgba(232,185,79,.2);
-
-    background:
-        rgba(232,185,79,.035);
-
-    transform:translateX(3px);
-}
-
-
-.signal-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    color:#aaa;
-
-    font-size:10px;
-}
-
-
-.signal-icon{
-
-    color:var(--gold);
-
-    font-size:14px;
-}
-
-
-.signal-value{
-
-    padding:5px 9px;
-
-    border-radius:20px;
-
-    background:
-        rgba(167,124,255,.08);
-
-    border:
-        1px solid rgba(167,124,255,.18);
-
-    color:#d3c6ff;
-
-    font-size:8px;
-
-    font-weight:600;
-}
-
-
-/* =========================================================
-   DECISION
-========================================================= */
-
-.decision-title{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:27px;
-
-    line-height:1.15;
-
-    color:var(--gold2);
-
-    margin-top:8px;
-
-    max-width:430px;
-}
-
-
-.decision-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:9px;
-
-    margin-top:23px;
-}
-
-
-.decision-item{
-
-    padding:13px;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-}
-
-
-.decision-item small{
-
-    display:block;
-
-    color:#72798a;
-
-    font-size:7px;
-
-    letter-spacing:1px;
-}
-
-
-.decision-item strong{
-
-    display:block;
-
-    margin-top:6px;
-
-    font-size:10px;
-
-    color:#ddd;
-}
-
-
-.message{
-
-    margin-top:15px;
-
-    padding:17px;
-
-    border-radius:15px;
-
-    border:
-        1px solid rgba(232,185,79,.22);
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(232,185,79,.07),
-            rgba(167,124,255,.035)
-        );
-
-    color:#d9d9df;
-
-    font-size:10px;
-
-    line-height:1.7;
-
-    position:relative;
-}
-
-
-.message::before{
-
-    content:"“";
-
-    position:absolute;
-
-    right:14px;
-    top:3px;
-
-    color:var(--gold);
-
-    font-family:serif;
-
-    font-size:40px;
-
-    opacity:.5;
-}
-
-
-.rationale{
-
-    margin-top:15px;
-
-    color:#d9d7d1;
-
-    font-size:12px;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   BOTTOM KPI
-========================================================= */
-
-.bottom{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:13px;
-}
-
-
-.bottom-card{
-
-    padding:19px;
-
-    border-radius:18px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.bottom-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:100px;
-    height:100px;
-
-    right:-40px;
-    bottom:-50px;
-
-    border-radius:50%;
-
-    background:rgba(232,185,79,.08);
-
-    filter:blur(20px);
-}
-
-
-.bottom-label{
-
-    color:#777e8d;
-
-    font-size:8px;
-
-    letter-spacing:1px;
-}
-
-
-.bottom-value{
-
-    margin-top:9px;
-
-    font-family:"Playfair Display",serif;
-
-    font-size:24px;
-
-    color:#eee;
-}
-
-
-.bottom-sub{
-
-    color:#727887;
-
-    font-size:8px;
-
-    margin-top:4px;
-}
-
-
-.gold-bottom .bottom-value{
-
-    color:var(--gold2);
-}
-
-
-.purple-bottom .bottom-value{
-
-    color:#c2a9ff;
-}
-
-
-.blue-bottom .bottom-value{
-
-    color:#9bc5ff;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-
-    padding:25px 3px;
-
-    color:#555b68;
-
-    font-size:8px;
-
-    letter-spacing:.5px;
-}
-
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes pulse{
-
-    0%,100%{
-        opacity:.6;
-        transform:scale(.9);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.15);
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:1100px){
-
-    .sidebar{
-
-        width:80px;
-    }
-
-    .brand-text,
-    .nav-text,
-    .status{
-
-        display:none;
-    }
-
-    .main{
-
-        margin-left:105px;
-
-        padding:30px;
-    }
-
-    .customer-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .panel{
-
-        border-right:none;
-
-        border-bottom:
-            1px solid rgba(255,255,255,.09);
-    }
-
-    .bottom{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-}
-
-
-@media(max-width:700px){
-
-    .main{
-
-        margin-left:0;
-
-        padding:20px;
-    }
-
-    .sidebar{
-
-        position:relative;
-
-        width:auto;
-
-        height:auto;
-
-        margin:10px;
-
-        display:none;
-    }
-
-    .title{
-
-        font-size:40px;
-    }
-
-    .top{
-
-        flex-direction:column;
-
-        gap:15px;
-    }
-
-    .search-row{
-
-        flex-direction:column;
-    }
-
-    .search{
-
-        width:100%;
-    }
-
-    .bottom{
-
-        grid-template-columns:1fr;
-    }
-
-    .decision-grid{
-
-        grid-template-columns:1fr;
-    }
-
-}
-
-</style>
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
 </head>
-
 
 
 <body>
 
+    <!-- =====================================================
+         COSMIC BACKGROUND
+    ====================================================== -->
 
-<!-- =========================================================
-     COSMIC BACKGROUND
-========================================================= -->
+    <canvas id="spaceCanvas"></canvas>
 
-<canvas id="spaceCanvas"></canvas>
-
-<div class="nebula one"></div>
-<div class="nebula two"></div>
-<div class="nebula three"></div>
-
-
-
-<!-- =========================================================
-     SIDEBAR
-========================================================= -->
-
-<aside class="sidebar glass">
-
-    <div class="brand">
-
-        <div class="logo">
-            N
-        </div>
-
-        <div class="brand-text">
-
-            <div class="brand-name">
-                NudgeIQ
-            </div>
-
-            <div class="brand-sub">
-                GOLD INTELLIGENCE
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <nav class="nav">
-
-        <button class="nav-btn active">
-            <span class="nav-icon">⌂</span>
-            <span class="nav-text">Overview</span>
-        </button>
-
-        <button class="nav-btn" onclick="showOpportunity()">
-
-            <span class="nav-icon">✦</span>
-
-             <span class="nav-text">
-                 Opportunity
-             </span>
-
-        </button>
-
-        <button class="nav-btn active-decision">
-            <span class="nav-icon">☆</span>
-            <span class="nav-text">Customer Decision</span>
-        </button>
-
-        <button class="nav-btn">
-            <span class="nav-icon">♧</span>
-            <span class="nav-text">Campaign Cohorts</span>
-        </button>
-
-        <button class="nav-btn">
-            <span class="nav-icon">⌁</span>
-            <span class="nav-text">Model Monitoring</span>
-        </button>
-
-        <button class="nav-btn">
-            <span class="nav-icon">◇</span>
-            <span class="nav-text">Experiments</span>
-        </button>
-
-    </nav>
-
-
-    <div class="status">
-
-        <div class="status-line">
-
-            <span class="status-dot"></span>
-
-            Model Active
-
-        </div>
-
-        <div class="status-small">
-
-            NUDGEIQ v1.0 · SYNTHETIC MODEL
-
-        </div>
-
-    </div>
-
-</aside>
-
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main class="main">
-    <div id="dashboardContent">
-
-
-    <header class="top">
-
-        <div>
-
-            <div class="eyebrow">
-                CUSTOMER DECISION VIEW
-            </div>
-
-            <div class="title">
-                Customer
-                <span>Intelligence</span>
-            </div>
-
-            <p class="description">
-
-                Review the customer profile and NudgeIQ's
-                recommended next best action.
-
-            </p>
-
-        </div>
-
-
-        <div class="top-right">
-
-            <div class="pill">
-                11,162 CUSTOMERS
-            </div>
-
-            <div class="pill live">
-                SYNTHETIC MODEL · LIVE
-            </div>
-
-        </div>
-
-    </header>
-
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+    <div class="nebula nebula-three"></div>
 
 
     <!-- =====================================================
-         SEARCH
+         APP
     ====================================================== -->
 
-    <section class="search-card glass">
-
-        <div class="search-label">
-            SEARCH CUSTOMER
-        </div>
-
-        <div class="search-row">
-
-            <input
-                id="customerInput"
-                class="search"
-                value="SYN00001"
-                placeholder="Enter Customer ID"
-            >
-
-            <button
-                class="analyse"
-                onclick="analyseCustomer()"
-            >
-                Analyse Customer →
-            </button>
-
-        </div>
-
-    </section>
+    <div class="app">
 
 
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
 
-    <!-- =====================================================
-         CUSTOMER INTELLIGENCE
-    ====================================================== -->
+        <aside class="sidebar glass">
 
-    <section class="customer-grid glass">
+            <div class="brand">
 
+                <div class="logo">
+                    N
+                </div>
 
-        <!-- PROFILE -->
+                <div class="brand-copy">
 
-        <div class="panel">
-
-            <div class="panel-label">
-                CUSTOMER PROFILE
-            </div>
-
-            <div
-                id="customerId"
-                class="customer-id"
-            >
-                SYN00001
-            </div>
-
-            <div
-                id="persona"
-                class="persona"
-            >
-                Inactive Investor
-            </div>
-
-
-            <div class="score-orbit">
-
-                <div class="score-center">
-
-                    <div
-                        id="score"
-                        class="score"
-                    >
-                        0.25
+                    <div class="brand-name">
+                        NudgeIQ
                     </div>
 
-                    <div class="score-label">
-                        OPPORTUNITY SCORE
+                    <div class="brand-subtitle">
+                        GOLD INTELLIGENCE
                     </div>
 
                 </div>
@@ -1696,1556 +68,1384 @@ footer{
             </div>
 
 
-            <div class="mini-stats">
+            <nav class="nav">
 
-                <div class="mini">
+                <button
+                    type="button"
+                    class="nav-btn active"
+                    data-page="overview"
+                >
+                    <span class="nav-icon">⌂</span>
+                    <span class="nav-text">Overview</span>
+                </button>
 
-                    <small>
-                        FINANCIAL
-                    </small>
 
-                    <strong id="financialMini">
-                        Medium
+                <button
+                    type="button"
+                    class="nav-btn"
+                    data-page="opportunity"
+                >
+                    <span class="nav-icon">✦</span>
+                    <span class="nav-text">Opportunity</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="nav-btn"
+                    data-page="customer"
+                >
+                    <span class="nav-icon">☆</span>
+                    <span class="nav-text">Customer Decision</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="nav-btn"
+                    data-page="campaigns"
+                >
+                    <span class="nav-icon">♧</span>
+                    <span class="nav-text">Campaign Cohorts</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="nav-btn"
+                    data-page="monitoring"
+                >
+                    <span class="nav-icon">⌁</span>
+                    <span class="nav-text">Model Monitoring</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="nav-btn"
+                    data-page="experiments"
+                >
+                    <span class="nav-icon">◇</span>
+                    <span class="nav-text">Experiments</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-status">
+
+                <div class="status-row">
+
+                    <span class="status-dot"></span>
+
+                    <strong>
+                        Model Active
                     </strong>
 
                 </div>
 
-
-                <div class="mini">
-
-                    <small>
-                        READINESS
-                    </small>
-
-                    <strong id="readinessMini">
-                        Low
-                    </strong>
-
-                </div>
-
-
-                <div class="mini">
-
-                    <small>
-                        FREQUENCY
-                    </small>
-
-                    <strong id="frequencyMini">
-                        Rare
-                    </strong>
-
+                <div class="status-version">
+                    NUDGEIQ v1.0 · SYNTHETIC MODEL
                 </div>
 
             </div>
 
-        </div>
+        </aside>
 
 
 
-        <!-- SIGNALS -->
+        <!-- =================================================
+             MAIN
+        ================================================== -->
 
-        <div class="panel">
-
-            <div class="panel-label">
-                CUSTOMER SIGNALS
-            </div>
+        <main class="main">
 
 
-            <div class="signal-list">
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
 
+            <section
+                id="overviewPage"
+                class="page active"
+            >
 
-                <div class="signal">
+                <header class="hero">
 
-                    <div class="signal-left">
+                    <div class="hero-copy">
 
-                        <span class="signal-icon">
-                            ◈
-                        </span>
+                        <div class="eyebrow">
+                            CUSTOMER INTELLIGENCE
+                        </div>
 
-                        Financial Level
+                        <h1>
+                            Find the customers
+                            <span>worth nudging.</span>
+                        </h1>
 
-                    </div>
-
-                    <span
-                        id="financial"
-                        class="signal-value"
-                    >
-                        Medium
-                    </span>
-
-                </div>
-
-
-                <div class="signal">
-
-                    <div class="signal-left">
-
-                        <span class="signal-icon">
-                            ∿
-                        </span>
-
-                        Engagement
+                        <p>
+                            NudgeIQ transforms behavioural signals into
+                            customer opportunity scores and next-best
+                            actions for gold investment engagement.
+                        </p>
 
                     </div>
 
-                    <span
-                        id="engagement"
-                        class="signal-value"
-                    >
-                        Low
-                    </span>
 
-                </div>
+                    <div class="hero-meta">
+
+                        <div class="top-pill">
+                            <span class="status-dot"></span>
+                            MODEL ACTIVE
+                        </div>
+
+                        <div class="top-pill">
+                            11,162 CUSTOMERS
+                        </div>
+
+                    </div>
+
+                </header>
 
 
-                <div class="signal">
 
-                    <div class="signal-left">
+                <!-- =================================================
+                     KPI CARDS
+                ================================================== -->
 
-                        <span class="signal-icon">
+                <div class="kpi-grid">
+
+                    <article class="kpi-card glass">
+
+                        <div class="kpi-symbol">
+                            ✦
+                        </div>
+
+                        <div class="kpi-label">
+                            HIGH OPPORTUNITY
+                        </div>
+
+                        <div class="kpi-value">
+                            5,176
+                        </div>
+
+                        <div class="kpi-description">
+                            46.37% of customers
+                        </div>
+
+                    </article>
+
+
+                    <article class="kpi-card glass">
+
+                        <div class="kpi-symbol">
+                            ◇
+                        </div>
+
+                        <div class="kpi-label">
+                            MEDIUM OPPORTUNITY
+                        </div>
+
+                        <div class="kpi-value">
+                            3,934
+                        </div>
+
+                        <div class="kpi-description">
+                            35.24% of customers
+                        </div>
+
+                    </article>
+
+
+                    <article class="kpi-card glass">
+
+                        <div class="kpi-symbol">
+                            ○
+                        </div>
+
+                        <div class="kpi-label">
+                            LOW OPPORTUNITY
+                        </div>
+
+                        <div class="kpi-value">
+                            2,052
+                        </div>
+
+                        <div class="kpi-description">
+                            18.38% of customers
+                        </div>
+
+                    </article>
+
+
+                    <article class="kpi-card glass">
+
+                        <div class="kpi-symbol">
                             ◎
-                        </span>
+                        </div>
 
-                        Profile
+                        <div class="kpi-label">
+                            AVG OPPORTUNITY
+                        </div>
 
-                    </div>
+                        <div class="kpi-value">
+                            0.498
+                        </div>
 
-                    <span
-                        id="profile"
-                        class="signal-value"
-                    >
-                        Low
-                    </span>
+                        <div class="kpi-description">
+                            Modelled score
+                        </div>
 
-                </div>
-
-
-                <div class="signal">
-
-                    <div class="signal-left">
-
-                        <span class="signal-icon">
-                            ✧
-                        </span>
-
-                        Gold Readiness
-
-                    </div>
-
-                    <span
-                        id="readiness"
-                        class="signal-value"
-                    >
-                        Low
-                    </span>
+                    </article>
 
                 </div>
 
 
-                <div class="signal">
 
-                    <div class="signal-left">
+                <!-- =================================================
+                     PERSONA PRIORITY
+                ================================================== -->
 
-                        <span class="signal-icon">
-                            ♢
+                <section class="panel glass">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-label">
+                                PERSONA PRIORITIZATION
+                            </div>
+
+                            <h2>
+                                Highest Opportunity Segments
+                            </h2>
+
+                        </div>
+
+                        <span class="model-badge">
+                            MODELLED
                         </span>
-
-                        Risk Appetite
 
                     </div>
 
-                    <span
-                        id="risk"
-                        class="signal-value"
-                    >
-                        Conservative
-                    </span>
 
-                </div>
+                    <div id="personaRanking" class="persona-ranking">
+
+                        <div class="ranking-item">
+
+                            <span class="ranking-number">
+                                01
+                            </span>
+
+                            <span class="ranking-name">
+                                Premium Investor
+                            </span>
+
+                            <strong>
+                                0.900
+                            </strong>
+
+                        </div>
 
 
-                <div class="signal">
+                        <div class="ranking-item">
 
-                    <div class="signal-left">
+                            <span class="ranking-number">
+                                02
+                            </span>
 
-                        <span class="signal-icon">
-                            ◷
-                        </span>
+                            <span class="ranking-name">
+                                Growth Investor
+                            </span>
 
-                        Investment Frequency
+                            <strong>
+                                0.815
+                            </strong>
+
+                        </div>
+
+
+                        <div class="ranking-item">
+
+                            <span class="ranking-number">
+                                03
+                            </span>
+
+                            <span class="ranking-name">
+                                Dormant Wealth Holder
+                            </span>
+
+                            <strong>
+                                0.699
+                            </strong>
+
+                        </div>
+
+
+                        <div class="ranking-item">
+
+                            <span class="ranking-number">
+                                04
+                            </span>
+
+                            <span class="ranking-name">
+                                Balanced Investor
+                            </span>
+
+                            <strong>
+                                0.642
+                            </strong>
+
+                        </div>
 
                     </div>
 
-                    <span
-                        id="frequency"
-                        class="signal-value"
-                    >
-                        Rare
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </div>
+                </section>
 
 
 
-        <!-- DECISION -->
+                <!-- =================================================
+                     PERSONA CONSTELLATION
+                ================================================== -->
 
-        <div class="panel">
+                <section class="panel glass constellation-panel">
 
-            <div class="panel-label">
-                NUDGEIQ DECISION
-            </div>
+                    <div class="panel-header">
+
+                        <div>
+
+                            <div class="panel-label">
+                                BEHAVIOURAL UNIVERSE
+                            </div>
+
+                            <h2>
+                                Persona Constellation
+                            </h2>
+
+                            <p>
+                                Each constellation represents a
+                                behavioural customer persona.
+                            </p>
+
+                        </div>
 
 
-            <div
-                id="action"
-                class="decision-title"
+                        <div class="legend">
+
+                            <div>
+                                <span class="legend-dot gold"></span>
+                                Higher opportunity
+                            </div>
+
+                            <div>
+                                <span class="legend-dot purple"></span>
+                                Lower opportunity
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="constellation-wrapper">
+
+                        <canvas id="personaCanvas"></canvas>
+
+                        <div
+                            id="personaLabels"
+                            class="persona-labels"
+                        ></div>
+
+
+                        <div class="constellation-core">
+
+                            <div class="core-ring"></div>
+
+                            <div class="core-logo">
+                                N
+                            </div>
+
+                            <div class="core-name">
+                                NUDGEIQ
+                            </div>
+
+                            <div class="core-caption">
+                                CUSTOMER INTELLIGENCE
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 OPPORTUNITY
+            ================================================== -->
+
+            <section
+                id="opportunityPage"
+                class="page"
             >
-                Low-friction gold awareness content
-            </div>
+
+                <header class="page-header">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            OPPORTUNITY INTELLIGENCE
+                        </div>
+
+                        <h1>
+                            Gold <span>Opportunity</span>
+                        </h1>
+
+                        <p>
+                            Identify and prioritize customers with
+                            the strongest modelled gold opportunity.
+                        </p>
+
+                    </div>
+
+                </header>
 
 
-            <div class="decision-grid">
+                <div class="kpi-grid">
+
+                    <article class="kpi-card glass">
+                        <div class="kpi-symbol">✦</div>
+                        <div class="kpi-label">HIGH OPPORTUNITY</div>
+                        <div class="kpi-value">5,176</div>
+                        <div class="kpi-description">
+                            Priority customers
+                        </div>
+                    </article>
 
 
-                <div class="decision-item">
+                    <article class="kpi-card glass">
+                        <div class="kpi-symbol">◇</div>
+                        <div class="kpi-label">MEDIUM OPPORTUNITY</div>
+                        <div class="kpi-value">3,934</div>
+                        <div class="kpi-description">
+                            Nurture potential
+                        </div>
+                    </article>
 
-                    <small>
-                        CHANNEL
-                    </small>
 
-                    <strong id="channel">
-                        Low-cost Digital
-                    </strong>
+                    <article class="kpi-card glass">
+                        <div class="kpi-symbol">○</div>
+                        <div class="kpi-label">LOW OPPORTUNITY</div>
+                        <div class="kpi-value">2,052</div>
+                        <div class="kpi-description">
+                            Awareness required
+                        </div>
+                    </article>
+
+
+                    <article class="kpi-card glass">
+                        <div class="kpi-symbol">◎</div>
+                        <div class="kpi-label">AVG OPPORTUNITY</div>
+                        <div class="kpi-value">0.498</div>
+                        <div class="kpi-description">
+                            Modelled score
+                        </div>
+                    </article>
 
                 </div>
 
 
-                <div class="decision-item">
+                <div class="two-column">
 
-                    <small>
-                        INTENSITY
-                    </small>
+                    <section class="panel glass">
 
-                    <strong id="intensity">
-                        Low
-                    </strong>
+                        <div class="panel-label">
+                            OPPORTUNITY DISTRIBUTION
+                        </div>
+
+                        <h2>
+                            Customer Opportunity Bands
+                        </h2>
+
+
+                        <div class="distribution">
+
+                            <div class="distribution-item">
+
+                                <div class="distribution-top">
+
+                                    <span>
+                                        High
+                                    </span>
+
+                                    <strong>
+                                        46.37%
+                                    </strong>
+
+                                </div>
+
+                                <div class="distribution-track">
+                                    <div
+                                        class="distribution-fill high"
+                                        style="width:46.37%"
+                                    ></div>
+                                </div>
+
+                                <small>
+                                    5,176 customers
+                                </small>
+
+                            </div>
+
+
+                            <div class="distribution-item">
+
+                                <div class="distribution-top">
+
+                                    <span>
+                                        Medium
+                                    </span>
+
+                                    <strong>
+                                        35.24%
+                                    </strong>
+
+                                </div>
+
+                                <div class="distribution-track">
+                                    <div
+                                        class="distribution-fill medium"
+                                        style="width:35.24%"
+                                    ></div>
+                                </div>
+
+                                <small>
+                                    3,934 customers
+                                </small>
+
+                            </div>
+
+
+                            <div class="distribution-item">
+
+                                <div class="distribution-top">
+
+                                    <span>
+                                        Low
+                                    </span>
+
+                                    <strong>
+                                        18.38%
+                                    </strong>
+
+                                </div>
+
+                                <div class="distribution-track">
+                                    <div
+                                        class="distribution-fill low"
+                                        style="width:18.38%"
+                                    ></div>
+                                </div>
+
+                                <small>
+                                    2,052 customers
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel glass">
+
+                        <div class="panel-label">
+                            PERSONA PRIORITIZATION
+                        </div>
+
+                        <h2>
+                            Highest Opportunity Segments
+                        </h2>
+
+
+                        <div class="ranking">
+
+                            <div class="ranking-item">
+                                <span class="ranking-number">01</span>
+                                <span class="ranking-name">
+                                    Premium Investor
+                                </span>
+                                <strong>0.900</strong>
+                            </div>
+
+
+                            <div class="ranking-item">
+                                <span class="ranking-number">02</span>
+                                <span class="ranking-name">
+                                    Growth Investor
+                                </span>
+                                <strong>0.815</strong>
+                            </div>
+
+
+                            <div class="ranking-item">
+                                <span class="ranking-number">03</span>
+                                <span class="ranking-name">
+                                    Dormant Wealth Holder
+                                </span>
+                                <strong>0.699</strong>
+                            </div>
+
+
+                            <div class="ranking-item">
+                                <span class="ranking-number">04</span>
+                                <span class="ranking-name">
+                                    Balanced Investor
+                                </span>
+                                <strong>0.642</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMER DECISION
+            ================================================== -->
+
+            <section
+                id="customerPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            CUSTOMER INTELLIGENCE
+                        </div>
+
+                        <h1>
+                            Customer <span>Decision</span>
+                        </h1>
+
+                        <p>
+                            Search a customer to understand their
+                            behavioural signals and recommended action.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="panel glass search-panel">
+
+                    <div class="panel-label">
+                        CUSTOMER SEARCH
+                    </div>
+
+                    <div class="search-row">
+
+                        <input
+                            id="customerSearch"
+                            type="text"
+                            placeholder="Enter Customer ID — SYN00001"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            id="analyseCustomer"
+                            type="button"
+                        >
+                            Analyse
+                        </button>
+
+                    </div>
+
+                    <div id="searchMessage"></div>
+
+                </section>
+
+
+                <div class="customer-grid">
+
+
+                    <section class="panel glass">
+
+                        <div class="panel-label">
+                            CUSTOMER PROFILE
+                        </div>
+
+                        <div
+                            id="customerId"
+                            class="customer-id"
+                        >
+                            —
+                        </div>
+
+                        <div
+                            id="customerPersona"
+                            class="customer-persona"
+                        >
+                            —
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <div>
+                                <span>Customer Type</span>
+                                <strong id="customerType">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Age</span>
+                                <strong id="customerAge">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Job</span>
+                                <strong id="customerJob">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Investment Experience</span>
+                                <strong id="customerExperience">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Risk Appetite</span>
+                                <strong id="customerRisk">—</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <section class="panel glass">
+
+                        <div class="panel-label">
+                            BEHAVIOURAL SIGNALS
+                        </div>
+
+
+                        <div class="signals">
+
+                            <div class="signal">
+
+                                <div class="signal-heading">
+                                    <span>Financial Level</span>
+                                    <strong id="financialLevel">—</strong>
+                                </div>
+
+                                <div class="signal-track">
+                                    <div
+                                        id="financialBar"
+                                        class="signal-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="signal">
+
+                                <div class="signal-heading">
+                                    <span>Engagement Level</span>
+                                    <strong id="engagementLevel">—</strong>
+                                </div>
+
+                                <div class="signal-track">
+                                    <div
+                                        id="engagementBar"
+                                        class="signal-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="signal">
+
+                                <div class="signal-heading">
+                                    <span>Profile Level</span>
+                                    <strong id="profileLevel">—</strong>
+                                </div>
+
+                                <div class="signal-track">
+                                    <div
+                                        id="profileBar"
+                                        class="signal-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="signal">
+
+                                <div class="signal-heading">
+                                    <span>Gold Awareness</span>
+                                    <strong id="goldAwareness">—</strong>
+                                </div>
+
+                                <div class="signal-track">
+                                    <div
+                                        id="awarenessBar"
+                                        class="signal-fill"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <section class="panel glass decision-panel">
+
+                        <div class="panel-label">
+                            NUDGEIQ DECISION
+                        </div>
+
+
+                        <div
+                            id="opportunityBand"
+                            class="decision-band"
+                        >
+                            —
+                        </div>
+
+
+                        <div
+                            id="opportunityScore"
+                            class="decision-score"
+                        >
+                            —
+                        </div>
+
+
+                        <div class="decision-heading">
+                            NEXT BEST ACTION
+                        </div>
+
+
+                        <div
+                            id="nextBestAction"
+                            class="decision-action"
+                        >
+                            Search for a customer to generate
+                            a recommendation.
+                        </div>
+
+
+                        <div class="decision-details">
+
+                            <div>
+                                <span>Channel</span>
+                                <strong id="recommendedChannel">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Nudge Intensity</span>
+                                <strong id="nudgeIntensity">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Business Objective</span>
+                                <strong id="businessObjective">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Target KPI</span>
+                                <strong id="targetKpi">—</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
 
                 </div>
 
 
-                <div class="decision-item">
+                <section class="panel glass">
 
-                    <small>
-                        TARGET KPI
-                    </small>
+                    <div class="panel-label">
+                        RECOMMENDED NUDGE
+                    </div>
 
-                    <strong id="kpi">
-                        Gold Nudge Engagement Rate
-                    </strong>
+                    <div
+                        id="goldNudgeMessage"
+                        class="nudge-message"
+                    >
+                        Search for a customer to view the
+                        recommended gold nudge.
+                    </div>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CAMPAIGNS
+            ================================================== -->
+
+            <section
+                id="campaignsPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ACTIVATION STRATEGY
+                        </div>
+
+                        <h1>
+                            Campaign <span>Cohorts</span>
+                        </h1>
+
+                        <p>
+                            Translate opportunity into targeted
+                            customer communication strategies.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div class="cohort-grid">
+
+                    <article class="cohort-card glass">
+
+                        <div class="cohort-icon">
+                            ✦
+                        </div>
+
+                        <div class="panel-label">
+                            HIGH OPPORTUNITY
+                        </div>
+
+                        <div class="cohort-number">
+                            5,176
+                        </div>
+
+                        <div class="cohort-percent">
+                            46.37%
+                        </div>
+
+                        <h3>
+                            Priority Activation
+                        </h3>
+
+                        <p>
+                            Targeted investment propositions and
+                            relationship-led nudges.
+                        </p>
+
+                    </article>
+
+
+                    <article class="cohort-card glass">
+
+                        <div class="cohort-icon">
+                            ◇
+                        </div>
+
+                        <div class="panel-label">
+                            MEDIUM OPPORTUNITY
+                        </div>
+
+                        <div class="cohort-number">
+                            3,934
+                        </div>
+
+                        <div class="cohort-percent">
+                            35.24%
+                        </div>
+
+                        <h3>
+                            Nurture & Educate
+                        </h3>
+
+                        <p>
+                            Educational content and confidence-building
+                            communication.
+                        </p>
+
+                    </article>
+
+
+                    <article class="cohort-card glass">
+
+                        <div class="cohort-icon">
+                            ○
+                        </div>
+
+                        <div class="panel-label">
+                            LOW OPPORTUNITY
+                        </div>
+
+                        <div class="cohort-number">
+                            2,052
+                        </div>
+
+                        <div class="cohort-percent">
+                            18.38%
+                        </div>
+
+                        <h3>
+                            Awareness
+                        </h3>
+
+                        <p>
+                            Low-cost digital communication and
+                            re-engagement.
+                        </p>
+
+                    </article>
 
                 </div>
 
 
-                <div class="decision-item">
+                <section class="panel glass">
 
-                    <small>
-                        COHORT
-                    </small>
+                    <div class="panel-label">
+                        NEXT-BEST-ACTION FRAMEWORK
+                    </div>
 
-                    <strong id="cohort">
-                        AWARENESS_COHORT
-                    </strong>
+                    <h2>
+                        Signal → Persona → Opportunity → Nudge → KPI
+                    </h2>
+
+
+                    <div class="flow">
+
+                        <div>
+                            <span>01</span>
+                            Behavioural Signal
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>02</span>
+                            Persona
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>03</span>
+                            Opportunity
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>04</span>
+                            Nudge
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>05</span>
+                            KPI
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MODEL MONITORING
+            ================================================== -->
+
+            <section
+                id="monitoringPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            MODEL GOVERNANCE
+                        </div>
+
+                        <h1>
+                            Model <span>Monitoring</span>
+                        </h1>
+
+                        <p>
+                            Monitor data quality, segmentation and
+                            analytical assumptions.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div class="monitor-grid">
+
+                    <article class="monitor-card glass">
+
+                        <div class="monitor-icon">
+                            ✓
+                        </div>
+
+                        <div class="panel-label">
+                            DATA QUALITY
+                        </div>
+
+                        <h2>
+                            Stable
+                        </h2>
+
+                        <strong>
+                            11,162
+                        </strong>
+
+                        <p>
+                            Customer observations processed.
+                        </p>
+
+                    </article>
+
+
+                    <article class="monitor-card glass">
+
+                        <div class="monitor-icon">
+                            ◈
+                        </div>
+
+                        <div class="panel-label">
+                            SEGMENTATION
+                        </div>
+
+                        <h2>
+                            9 Personas
+                        </h2>
+
+                        <strong>
+                            Validated
+                        </strong>
+
+                        <p>
+                            Behavioural differentiation assessed
+                            statistically.
+                        </p>
+
+                    </article>
+
+
+                    <article class="monitor-card glass">
+
+                        <div class="monitor-icon">
+                            ∆
+                        </div>
+
+                        <div class="panel-label">
+                            GOLD OPPORTUNITY
+                        </div>
+
+                        <h2>
+                            Modelled
+                        </h2>
+
+                        <strong>
+                            0.498
+                        </strong>
+
+                        <p>
+                            Mean synthetic opportunity score.
+                        </p>
+
+                    </article>
 
                 </div>
 
 
-            </div>
+                <section class="panel glass governance">
+
+                    <div class="panel-label">
+                        GOVERNANCE NOTE
+                    </div>
+
+                    <h2>
+                        Beautiful on the outside.
+                        Defensible on the inside.
+                    </h2>
+
+                    <p>
+                        NudgeIQ is a decision-support framework.
+                        Gold Opportunity Scores should not be interpreted
+                        as observed gold purchases or guaranteed
+                        conversion. Incremental impact should be tested
+                        through controlled experiments.
+                    </p>
+
+                </section>
+
+            </section>
 
 
-            <div class="message" id="message">
 
-                Curious about gold investing?
-                Learn how gold can complement
-                a diversified financial plan.
+            <!-- =================================================
+                 EXPERIMENTS
+            ================================================== -->
 
-            </div>
+            <section
+                id="experimentsPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            VALIDATION
+                        </div>
+
+                        <h1>
+                            Nudge <span>Experiments</span>
+                        </h1>
+
+                        <p>
+                            Validate whether NudgeIQ recommendations
+                            generate incremental customer response.
+                        </p>
+
+                    </div>
+
+                </header>
 
 
-            <div class="rationale">
+                <section class="panel glass experiment">
 
-                <span style="color:var(--gold2);">
-                    ✦ DECISION RATIONALE
-                </span>
+                    <div class="experiment-top">
 
-                <br><br>
+                        <div>
 
-                <span id="rationale">
+                            <div class="panel-label">
+                                EXPERIMENT 01
+                            </div>
 
-                    Lower engagement and gold readiness
-                    indicate that an awareness-led approach
-                    is more appropriate.
+                            <h2>
+                                Gold Investment Nudge Test
+                            </h2>
 
-                </span>
+                        </div>
 
-            </div>
+                        <span class="planned">
+                            PLANNED
+                        </span>
 
-        </div>
+                    </div>
 
-    </section>
+
+                    <div class="experiment-flow">
+
+                        <div>
+                            <span>01</span>
+                            <strong>Control</strong>
+                            <p>
+                                Existing communication
+                            </p>
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>02</span>
+                            <strong>Treatment</strong>
+                            <p>
+                                NudgeIQ recommendation
+                            </p>
+                        </div>
+
+                        <i>→</i>
+
+                        <div>
+                            <span>03</span>
+                            <strong>Measure</strong>
+                            <p>
+                                Incremental response
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="experiment-metrics">
+
+                        <div>
+                            <span>Primary KPI</span>
+                            <strong>Conversion Rate</strong>
+                        </div>
+
+                        <div>
+                            <span>Secondary KPI</span>
+                            <strong>Average Investment</strong>
+                        </div>
+
+                        <div>
+                            <span>Method</span>
+                            <strong>A/B Test</strong>
+                        </div>
+
+                        <div>
+                            <span>Success Metric</span>
+                            <strong>Incremental Uplift</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+        </main>
+
+    </div>
 
 
     <!-- =====================================================
-     PERSONA CONSTELLATION
-===================================================== -->
-
-<section class="persona-section glass">
-
-    <div class="persona-heading">
-
-        <div>
-
-            <div class="panel-label">
-                NUDGEIQ PERSONA UNIVERSE
-            </div>
-
-            <h2>
-                Customer
-                <span>Constellation</span>
-            </h2>
-
-            <p>
-                Nine behavioral archetypes mapped by
-                modeled gold opportunity.
-            </p>
-
-        </div>
-
-        <div class="constellation-legend">
-
-            <span>
-                <i class="legend-dot high"></i>
-                High Opportunity
-            </span>
-
-            <span>
-                <i class="legend-dot medium"></i>
-                Medium
-            </span>
-
-            <span>
-                <i class="legend-dot low"></i>
-                Low
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="constellation-wrapper">
-
-        <canvas id="personaCanvas"></canvas>
-
-
-        <!-- PERSONA LABELS -->
-
-        <button
-            class="persona-star premium"
-            data-persona="Premium Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Premium Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star growth"
-            data-persona="Growth Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Growth Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star dormant"
-            data-persona="Dormant Wealth Holder"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Dormant Wealth Holder
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star balanced"
-            data-persona="Balanced Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Balanced Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star general"
-            data-persona="General Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                General Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star potential"
-            data-persona="Potential Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Potential Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star inactive"
-            data-persona="Inactive Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Inactive Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star emerging"
-            data-persona="Emerging Investor"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Emerging Investor
-            </span>
-        </button>
-
-
-        <button
-            class="persona-star lowengage"
-            data-persona="Low Engagement User"
-        >
-            <span class="star-core"></span>
-            <span class="star-label">
-                Low Engagement User
-            </span>
-        </button>
-
-
-        <!-- CENTER -->
-
-        <div class="constellation-center">
-
-            <div class="center-ring"></div>
-
-            <div class="center-content">
-
-                <span>
-                    NUDGEIQ
-                </span>
-
-                <strong>
-                    9
-                </strong>
-
-                <small>
-                    PERSONAS
-                </small>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- =====================================================
-     OPPORTUNITY DASHBOARD
-===================================================== -->
-
-<section class="opportunity-section glass">
-
-    <div class="opportunity-header">
-
-        <div>
-
-            <div class="panel-label">
-                OPPORTUNITY INTELLIGENCE
-            </div>
-
-            <h2>
-                Gold Opportunity
-                <span>Universe</span>
-            </h2>
-
-            <p>
-                Identify and prioritize customers with the
-                strongest modeled gold opportunity.
-            </p>
-
-        </div>
-
-        <div class="opportunity-badge">
-            ✦ MODELLED OPPORTUNITY
-        </div>
-
-    </div>
-
-
-    <!-- KPI CARDS -->
-
-    <div class="opportunity-kpis">
-
-        <div class="opp-kpi glass">
-
-            <div class="opp-icon">◎</div>
-
-            <div class="opp-label">
-                TOTAL CUSTOMERS
-            </div>
-
-            <div class="opp-number">
-                11,162
-            </div>
-
-            <div class="opp-sub">
-                Synthetic population
-            </div>
-
-        </div>
-
-
-        <div class="opp-kpi high">
-
-            <div class="opp-icon">
-                ✦
-            </div>
-
-            <div class="opp-label">
-                HIGH OPPORTUNITY
-            </div>
-
-            <div class="opp-number">
-                2,846
-            </div>
-
-            <div class="opp-sub">
-                Priority customers
-            </div>
-
-        </div>
-
-
-        <div class="opp-kpi medium">
-
-            <div class="opp-icon">
-                ◇
-            </div>
-
-            <div class="opp-label">
-                MEDIUM OPPORTUNITY
-            </div>
-
-            <div class="opp-number">
-                5,731
-            </div>
-
-            <div class="opp-sub">
-                Nurture potential
-            </div>
-
-        </div>
-
-
-        <div class="opp-kpi low">
-
-            <div class="opp-icon">
-                ○
-            </div>
-
-            <div class="opp-label">
-                LOW OPPORTUNITY
-            </div>
-
-            <div class="opp-number">
-                2,585
-            </div>
-
-            <div class="opp-sub">
-                Awareness required
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- MAIN OPPORTUNITY AREA -->
-
-    <div class="opportunity-main">
-
-
-        <!-- SCORE -->
-
-        <div class="opportunity-score glass">
-
-            <div class="panel-label">
-                AVERAGE GOLD OPPORTUNITY
-            </div>
-
-            <div class="big-score">
-                0.68
-            </div>
-
-            <div class="score-band">
-                MEDIUM-HIGH
-            </div>
-
-            <div class="score-line">
-
-                <span></span>
-
-            </div>
-
-            <p>
-                Overall modeled opportunity across
-                the synthetic customer population.
-            </p>
-
-        </div>
-
-
-        <!-- DISTRIBUTION -->
-
-        <div class="distribution glass">
-
-            <div class="panel-label">
-                OPPORTUNITY DISTRIBUTION
-            </div>
-
-            <div class="distribution-title">
-                Customer Opportunity Bands
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-info">
-
-                    <span>High</span>
-
-                    <strong>25.5%</strong>
-
-                </div>
-
-                <div class="bar">
-
-                    <div
-                        class="bar-fill gold"
-                        style="width:25.5%"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-info">
-
-                    <span>Medium</span>
-
-                    <strong>51.3%</strong>
-
-                </div>
-
-                <div class="bar">
-
-                    <div
-                        class="bar-fill purple"
-                        style="width:51.3%"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-info">
-
-                    <span>Low</span>
-
-                    <strong>23.2%</strong>
-
-                </div>
-
-                <div class="bar">
-
-                    <div
-                        class="bar-fill silver"
-                        style="width:23.2%"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="distribution-note">
-
-                <span>✦</span>
-
-                Medium opportunity represents the
-                largest customer pool.
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PERSONA / ACTION -->
-
-    <div class="opportunity-lower">
-
-
-        <div class="persona-ranking glass">
-
-            <div class="panel-label">
-                TOP PERSONAS
-            </div>
-
-            <div class="ranking-title">
-                Highest Opportunity Segments
-            </div>
-
-
-            <div class="ranking">
-
-                <div class="rank-item">
-
-                    <span class="rank">
-                        01
-                    </span>
-
-                    <span class="rank-name">
-                        Premium Investor
-                    </span>
-
-                    <span class="rank-score">
-                        0.91
-                    </span>
-
-                </div>
-
-
-                <div class="rank-item">
-
-                    <span class="rank">
-                        02
-                    </span>
-
-                    <span class="rank-name">
-                        Growth Investor
-                    </span>
-
-                    <span class="rank-score">
-                        0.82
-                    </span>
-
-                </div>
-
-
-                <div class="rank-item">
-
-                    <span class="rank">
-                        03
-                    </span>
-
-                    <span class="rank-name">
-                        Dormant Wealth Holder
-                    </span>
-
-                    <span class="rank-score">
-                        0.74
-                    </span>
-
-                </div>
-
-
-                <div class="rank-item">
-
-                    <span class="rank">
-                        04
-                    </span>
-
-                    <span class="rank-name">
-                        Balanced Investor
-                    </span>
-
-                    <span class="rank-score">
-                        0.68
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="action-ranking glass">
-
-            <div class="panel-label">
-                NEXT BEST ACTION
-            </div>
-
-            <div class="ranking-title">
-                Recommended Actions
-            </div>
-
-
-            <div class="action-item">
-
-                <span class="action-dot gold-dot"></span>
-
-                Strategic Recommendation
-
-                <strong>
-                    34%
-                </strong>
-
-            </div>
-
-
-            <div class="action-item">
-
-                <span class="action-dot purple-dot"></span>
-
-                Consideration Message
-
-                <strong>
-                    27%
-                </strong>
-
-            </div>
-
-
-            <div class="action-item">
-
-                <span class="action-dot blue-dot"></span>
-
-                Awareness Content
-
-                <strong>
-                    23%
-                </strong>
-
-            </div>
-
-
-            <div class="action-item">
-
-                <span class="action-dot grey-dot"></span>
-
-                Diversification
-
-                <strong>
-                    16%
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-    <!-- =====================================================
-         KPI STRIP
+         ONLY ONE JAVASCRIPT FILE
     ====================================================== -->
 
-    <section class="bottom">
+    <script src="script.js"></script>
 
-
-        <div class="bottom-card glass">
-
-            <div class="bottom-label">
-                CUSTOMER SEGMENT
-            </div>
-
-            <div
-                id="bottomPersona"
-                class="bottom-value purple-bottom"
-            >
-                Low Opportunity
-            </div>
-
-            <div class="bottom-sub">
-                Persona-derived segment
-            </div>
-
-        </div>
-
-
-        <div class="bottom-card glass purple-bottom">
-
-            <div class="bottom-label">
-                MODELED OPPORTUNITY
-            </div>
-
-            <div
-                id="bottomScore"
-                class="bottom-value"
-            >
-                0.25
-            </div>
-
-            <div class="bottom-sub">
-                Gold Opportunity Score
-            </div>
-
-        </div>
-
-
-        <div class="bottom-card glass blue-bottom">
-
-            <div class="bottom-label">
-                RECOMMENDED CHANNEL
-            </div>
-
-            <div
-                id="bottomChannel"
-                class="bottom-value"
-            >
-                Digital
-            </div>
-
-            <div class="bottom-sub">
-                Recommended execution route
-            </div>
-
-        </div>
-
-
-        <div class="bottom-card glass gold-bottom">
-
-            <div class="bottom-label">
-                TARGET KPI
-            </div>
-
-            <div
-                id="bottomKpi"
-                class="bottom-value"
-            >
-                Engagement
-            </div>
-
-            <div class="bottom-sub">
-                Measurement framework
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-    <footer>
-
-        NudgeIQ Gold Intelligence
-        <span style="color:var(--gold)">✦</span>
-        Synthetic prototype
-        <span style="color:var(--gold)">✦</span>
-        Model v1.0
-
-    </footer>
-</div>
-
-</main>
-
-
-
-<script>
-
-/* =========================================================
-   CUSTOMER DATA
-========================================================= */
-
-const customers = {
-
-    SYN00001: {
-
-        persona:"Inactive Investor",
-        score:"0.25",
-
-        financial:"Medium",
-        engagement:"Low",
-        profile:"Low",
-        readiness:"Low",
-        risk:"Conservative",
-        frequency:"Rare",
-
-        action:
-        "Low-friction gold awareness content",
-
-        channel:
-        "Low-cost Digital",
-
-        intensity:"Low",
-
-        kpi:
-        "Gold Nudge Engagement Rate",
-
-        cohort:
-        "AWARENESS_COHORT",
-
-        message:
-        "Curious about gold investing? Learn how gold can complement a diversified financial plan.",
-
-        rationale:
-        "Lower engagement and gold readiness indicate that an awareness-led approach is more appropriate."
-
-    },
-
-
-    SYN00002: {
-
-        persona:"Growth Investor",
-        score:"0.82",
-
-        financial:"High",
-        engagement:"Medium",
-        profile:"High",
-        readiness:"High",
-        risk:"Aggressive",
-        frequency:"Regular",
-
-        action:
-        "Personalized strategic gold recommendation",
-
-        channel:
-        "Relationship Manager / RM + Digital",
-
-        intensity:"High",
-
-        kpi:
-        "Gold Investment Conversion",
-
-        cohort:
-        "STRATEGIC_COHORT",
-
-        message:
-        "Explore whether a strategic allocation to gold could complement your existing investment portfolio.",
-
-        rationale:
-        "High financial capacity, strong profile characteristics and high gold readiness support a strategic recommendation."
-
-    },
-
-
-    SYN00003: {
-
-        persona:"Emerging Investor",
-        score:"0.48",
-
-        financial:"Medium",
-        engagement:"High",
-        profile:"Low",
-        readiness:"Medium",
-        risk:"Moderate",
-        frequency:"Regular",
-
-        action:
-        "Personalized gold consideration message",
-
-        channel:
-        "Digital",
-
-        intensity:"Medium-High",
-
-        kpi:
-        "Gold Consideration Rate",
-
-        cohort:
-        "CONSIDERATION_COHORT",
-
-        message:
-        "Explore gold as an additional investment option alongside your existing portfolio.",
-
-        rationale:
-        "High engagement and moderate readiness create an opportunity for consideration-oriented communication."
-
-    },
-
-
-    SYN00004: {
-
-        persona:"General Investor",
-        score:"0.60",
-
-        financial:"Medium",
-        engagement:"Medium",
-        profile:"Medium",
-        readiness:"Medium",
-        risk:"Moderate",
-        frequency:"Regular",
-
-        action:
-        "Gold diversification recommendation",
-
-        channel:
-        "Digital",
-
-        intensity:"High",
-
-        kpi:
-        "Gold Investment Conversion",
-
-        cohort:
-        "PRIORITY_CONSIDERATION_COHORT",
-
-        message:
-        "Looking to diversify your investments? Explore gold as another potential portfolio allocation.",
-
-        rationale:
-        "Balanced financial and engagement signals indicate an opportunity for a diversification-oriented recommendation."
-
-    }
-
-};
-
-
-
-/* =========================================================
-   CUSTOMER ANALYSIS
-========================================================= */
-
-function analyseCustomer(){
-
-    const id =
-        document
-        .getElementById("customerInput")
-        .value
-        .trim()
-        .toUpperCase();
-
-
-    const customer = customers[id];
-
-
-    if(!customer){
-
-        alert(
-            "Demo customer not found.\n\n" +
-            "Try SYN00001, SYN00002, SYN00003 or SYN00004."
-        );
-
-        return;
-    }
-
-
-    document.getElementById("customerId")
-        .innerText=id;
-
-    document.getElementById("persona")
-        .innerText=customer.persona;
-
-    document.getElementById("score")
-        .innerText=customer.score;
-
-    document.getElementById("financial")
-        .innerText=customer.financial;
-
-    document.getElementById("engagement")
-        .innerText=customer.engagement;
-
-    document.getElementById("profile")
-        .innerText=customer.profile;
-
-    document.getElementById("readiness")
-        .innerText=customer.readiness;
-
-    document.getElementById("risk")
-        .innerText=customer.risk;
-
-    document.getElementById("frequency")
-        .innerText=customer.frequency;
-
-    document.getElementById("financialMini")
-        .innerText=customer.financial;
-
-    document.getElementById("readinessMini")
-        .innerText=customer.readiness;
-
-    document.getElementById("frequencyMini")
-        .innerText=customer.frequency;
-
-    document.getElementById("action")
-        .innerText=customer.action;
-
-    document.getElementById("channel")
-        .innerText=customer.channel;
-
-    document.getElementById("intensity")
-        .innerText=customer.intensity;
-
-    document.getElementById("kpi")
-        .innerText=customer.kpi;
-
-    document.getElementById("cohort")
-        .innerText=customer.cohort;
-
-    document.getElementById("message")
-        .innerText=customer.message;
-
-    document.getElementById("rationale")
-        .innerText=customer.rationale;
-
-    document.getElementById("bottomPersona")
-        .innerText=customer.persona;
-
-    document.getElementById("bottomScore")
-        .innerText=customer.score;
-
-    document.getElementById("bottomChannel")
-        .innerText=customer.channel;
-
-    document.getElementById("bottomKpi")
-        .innerText=customer.kpi;
-
-}
-
-
-
-/* =========================================================
-   ENTER KEY SEARCH
-========================================================= */
-
-document
-.getElementById("customerInput")
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key==="Enter"){
-
-            analyseCustomer();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-document
-.querySelectorAll(".nav-btn")
-.forEach(button=>{
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            document
-            .querySelectorAll(".nav-btn")
-            .forEach(btn=>{
-                btn.classList.remove("active");
-            });
-
-            this.classList.add("active");
-
-        }
-    );
-
-});
-
-
-
-/* =========================================================
-   CONSTELLATION ENGINE
-========================================================= */
-
-const canvas =
-    document.getElementById("spaceCanvas");
-
-const ctx =
-    canvas.getContext("2d");
-
-
-let stars=[];
-
-let nodes=[];
-
-
-function resizeCanvas(){
-
-    canvas.width=
-        window.innerWidth;
-
-    canvas.height=
-        window.innerHeight;
-
-}
-
-
-resizeCanvas();
-
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-
-
-/* CREATE STARS */
-
-for(let i=0;i<190;i++){
-
-    stars.push({
-
-        x:Math.random(),
-        y:Math.random(),
-
-        radius:
-            Math.random()*1.5+.25,
-
-        alpha:
-            Math.random()*.7+.15,
-
-        speed:
-            Math.random()*.018+.004,
-
-        phase:
-            Math.random()*Math.PI*2
-
-    });
-
-}
-
-
-
-/* CREATE CONSTELLATION NODES */
-
-for(let i=0;i<32;i++){
-
-    nodes.push({
-
-        x:
-            Math.random(),
-
-        y:
-            Math.random()*.85,
-
-        radius:
-            Math.random()*1.8+.8,
-
-        pulse:
-            Math.random()*Math.PI*2
-
-    });
-
-}
-
-
-
-/* DRAW COSMOS */
-
-function drawCosmos(time){
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /* STARS */
-
-    stars.forEach(star=>{
-
-        const twinkle =
-            star.alpha +
-            Math.sin(
-                time*star.speed +
-                star.phase
-            )*.25;
-
-
-        const x =
-            star.x *
-            canvas.width;
-
-
-        const y =
-            star.y *
-            canvas.height;
-
-
-        ctx.beginPath();
-
-        ctx.arc(
-            x,
-            y,
-            star.radius,
-            0,
-            Math.PI*2
-        );
-
-
-        ctx.fillStyle =
-            `rgba(255,225,145,${Math.max(.05,twinkle)})`;
-
-
-        ctx.shadowBlur =
-            star.radius>1.2 ? 8 : 0;
-
-        ctx.shadowColor =
-            "#e8b94f";
-
-
-        ctx.fill();
-
-    });
-
-
-
-    /* CONSTELLATION LINES */
-
-    for(let i=0;i<nodes.length;i++){
-
-        for(let j=i+1;j<nodes.length;j++){
-
-            const a=nodes[i];
-
-            const b=nodes[j];
-
-
-            const ax=a.x*canvas.width;
-            const ay=a.y*canvas.height;
-
-            const bx=b.x*canvas.width;
-            const by=b.y*canvas.height;
-
-
-            const distance=
-                Math.hypot(
-                    ax-bx,
-                    ay-by
-                );
-
-
-            if(distance<190){
-
-                const opacity =
-                    .15 *
-                    (1-distance/190);
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(ax,ay);
-
-                ctx.lineTo(bx,by);
-
-                ctx.strokeStyle=
-                    `rgba(232,185,79,${opacity})`;
-
-                ctx.lineWidth=.6;
-
-                ctx.stroke();
-
-            }
-
-        }
-
-    }
-
-
-
-    /* NODES */
-
-    nodes.forEach(node=>{
-
-        const x=node.x*canvas.width;
-
-        const y=node.y*canvas.height;
-
-
-        const glow =
-            5+
-            Math.sin(
-                time*.002+
-                node.pulse
-            )*3;
-
-
-        ctx.beginPath();
-
-        ctx.arc(
-            x,
-            y,
-            node.radius,
-            0,
-            Math.PI*2
-        );
-
-
-        ctx.fillStyle=
-            "rgba(255,220,120,.85)";
-
-
-        ctx.shadowBlur=glow;
-
-        ctx.shadowColor=
-            "#e8b94f";
-
-
-        ctx.fill();
-
-    });
-
-
-    requestAnimationFrame(drawCosmos);
-
-}
-
-
-requestAnimationFrame(drawCosmos);
-
-</script>
-  <script src="script.js"></script>
 </body>
 
 </html>
