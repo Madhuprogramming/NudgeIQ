@@ -1,0 +1,18 @@
+project:
+  name: NudgeIQ
+  version: 1.0
+
+random_seed: 42
+
+effect_size:
+  weak: 0.10
+  moderate: 0.30
+  strong: 0.50
+
+model:
+  test_size: 0.20
+  random_state: 42
+
+simulation:
+  n_investors: 10000
+  max_reminders_per_month: 2

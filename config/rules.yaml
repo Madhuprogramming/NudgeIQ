@@ -1,0 +1,92 @@
+version: "1.0"
+
+metadata:
+  project: NudgeIQ
+  methodology: Behaviourally Informed Rule-Based Synthesis
+  source_dataset: UCI Bank Marketing
+
+rule_families:
+
+  financial_capacity:
+
+    - id: FC01
+      level: Very High
+      condition:
+        min_score: 2.0
+        max_score: null
+
+      outputs:
+        monthly_investment_capacity:
+          distribution: uniform
+          min: 8000
+          max: 10000
+
+        recommended_sip:
+          distribution: uniform
+          min: 4500
+          max: 5500
+
+        emergency_buffer_months: 6
+
+    - id: FC02
+      level: High
+      condition:
+        min_score: 1.0
+        max_score: 1.99
+
+      outputs:
+        monthly_investment_capacity:
+          distribution: uniform
+          min: 5000
+          max: 8000
+
+        recommended_sip:
+          distribution: uniform
+          min: 2500
+          max: 3500
+
+        emergency_buffer_months: 4
+
+    - id: FC03
+      level: Moderate
+      condition:
+        min_score: 0.0
+        max_score: 0.99
+
+      outputs:
+        monthly_investment_capacity:
+          distribution: uniform
+          min: 2000
+          max: 5000
+
+        recommended_sip:
+          distribution: uniform
+          min: 1000
+          max: 2000
+
+        emergency_buffer_months: 3
+
+    - id: FC04
+      level: Low
+      condition:
+        min_score: null
+        max_score: -0.01
+
+      outputs:
+        monthly_investment_capacity:
+          distribution: uniform
+          min: 500
+          max: 2000
+
+        recommended_sip:
+          distribution: uniform
+          min: 250
+          max: 750
+
+        emergency_buffer_months: 1
+
+  customer_engagement: []
+
+  marketing_responsiveness: []
+
+  investment_readiness: []
